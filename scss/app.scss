@@ -1,0 +1,412 @@
+@import "settings";
+@import "foundation";
+
+
+/* Variablen: (_siehe settings.scss)
+
+$blau: #1d398d;
+$gruen: #98b450;
+$hellgruen: #d7e2bc;
+$orange: #f25822;
+$dunkelgrau: #666;
+$hellgrau: #eee;
+$white: #FFFFFF;
+*/
+
+
+@mixin responsiveBreite{
+	max-width: 100%;
+}
+@mixin uberschrift{
+	margin-top: 0;
+	margin-bottom: 1rem;
+	color: $dunkelgrau;
+	letter-spacing: 0.1rem;
+}
+@mixin spalte{
+	padding: 1rem;
+	padding-left: 1.4rem;
+	a{
+		color: $blau;
+		text-decoration: underline;
+	}
+}
+
+
+.platzhalter{ //für die Seiten ohne Inhalt
+	height: 600px;
+}
+
+// ------------- für alle Seiten ------------------------------------------
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+#skip a {
+        position:absolute;
+        left:-10000px;
+        top:auto;
+        width:1px;
+        height:1px;
+        overflow:hidden;
+    }
+    #skip a:focus {
+        position:static;
+        width:auto;
+        height:auto;
+    }
+
+///////// HEADER //////////////////////////////////
+header{
+	max-height: 4rem;
+
+	.logo{
+		@include responsiveBreite;
+		max-height:100%; 
+		margin-top: 3%;
+		margin-bottom: 3%;
+		@media screen and (max-width: 480px){
+			max-height: 2rem;		
+		}
+		@media #{$small-up} { 
+			margin-top: 0.4rem;
+		}
+	}
+	.logodrei{
+		white-space: nowrap;
+		@include responsiveBreite;
+	}
+	.logobalken{
+		max-height: 4rem;
+		@include responsiveBreite;
+		margin: 0;
+		p{
+			margin: 0;
+		}
+		h1{
+			@include uberschrift;
+			margin-top: 0.9rem;
+			margin-bottom: 0.2rem;
+			font-size: 1.2rem;
+			font-weight: 400;
+		}
+		h2{
+			@include uberschrift;
+			font-size: 1rem;
+			font-weight: 200;
+			letter-spacing: 0.2rem;
+		}
+		@media screen and (max-width: 480px){
+			max-height: 3rem;
+        	min-width: 100%;		
+		}
+	}
+	//////////Kontaktbutton///////////
+	.kontaktbutton{
+			float: right;			
+			margin-bottom: 0;
+
+		@media #{$small-up} { 		    
+	        @include button($button-tny, $blau, 0px, false, false, false); 
+	        margin-top: 0.4rem;
+	        margin-bottom: 0rem;		    
+		}
+		@media #{$medium-up} {
+		    @include button($button-med, $blau, 0px, false, false, false); 
+		    margin-top: 0.9rem;
+		    margin-bottom: 0;
+		}
+	}
+	$button-font-med: rem-calc(16);
+}
+.kontaktbutton{
+			float: right;			
+			margin-bottom: 0;
+
+		@media #{$small-up} { 		    
+	        @include button($button-tny, $blau, 0px, false, false, false); 
+	        margin-top: 0.4rem;
+	        margin-bottom: 0rem;		    
+		}
+		@media #{$medium-up} {
+		    @include button($button-med, $blau, 0px, false, false, false); 
+		    margin-top: 0.9rem;
+		    margin-bottom: 0;
+		}
+	}
+/////////////////////////////////////////////
+#inhalt{
+	color: $blau;
+	h1{
+		@include uberschrift;
+		font-size: 1.5rem;
+		font-weight: 400;
+	}
+	h2{
+		@include uberschrift;
+		font-size: 1.2rem;
+		font-weight: 400;
+	}
+	h3{
+		@include uberschrift;
+		font-size: 1.2rem;
+		font-weight: 200;
+	}
+	h5{
+		color: $dunkelgrau;
+	}
+	@media #{$small-up} {
+		margin-top: 2rem;
+	}
+	@media #{$medium-up} {
+		margin-top: 5rem;
+	}
+}
+///////// Nav //////////////////////////////////
+.icon-bar {
+	.item {		
+  		background: #1d398d;
+  		padding: 0.7rem;
+  		label {
+			letter-spacing: 0.1rem;
+  			font-size: 1.0rem;
+   		}
+	}
+}
+//////////////////////////
+#sticky_footer {
+	text-align: center;
+	background-color: $blau;
+	color: $white;
+	p{
+		margin: 0;
+	}
+}
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+
+// ------------- Startseite ------------------------------------------
+
+.orbit-bullets-container{
+    margin-top: -60px;
+    @media screen and (max-width: 480px) {
+    	display: none;
+    }
+}
+
+.startseite{
+	.row{
+		padding-bottom: 1rem;
+		@media #{$medium-up} { 
+				padding-top: 1rem;
+			}
+	}	
+	h2{
+		margin-bottom: 1rem;
+	}
+	p{
+		@media #{$medium-up} {
+			margin-right: 2rem;
+		}
+		text-align: justify;
+	}
+	.rechteSpalte{
+		@include spalte;
+		white-space: nowrap;
+		background-color: $hellgrau;
+		margin-bottom: 1rem;
+		max-width: 14rem;
+		min-width: 12rem;
+	}
+}
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+
+// ------------- Kontaktseite ------------------------------------------
+.kontakt{
+	.row{
+		padding-bottom: 1rem;
+		@media #{$medium-up} { 
+				padding-top: 1rem;
+			}
+	}
+	p{
+		margin-top: 1rem;
+		text-align: justify;
+	}
+	table{
+		@include responsiveBreite;
+		min-width: 100%;
+		margin-bottom: 0;
+		border: none;	
+	}
+	a{
+			color: $blau;
+			text-decoration: underline;
+		}	
+	.spalten{
+		@include spalte;
+	}
+	.bildansehen{
+		text-align: center;
+	}
+	button{
+		@extend .kontaktbutton;
+		float: none;
+		padding: 0.5rem;
+		background-color: $dunkelgrau;
+	}
+}
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+// ------------- diePraxisseite ------------------------------------------
+.diepraxis{
+	.row{
+		margin-bottom: 2rem;
+	}
+	h1{
+		padding-left: 2rem;
+	}
+	h2{
+		margin-top: 2rem;
+	}
+	p{
+		margin-bottom: 0.5rem;
+		padding-right: 1rem;
+	}
+	.spalten{
+		text-align: justify;
+	}
+	a{
+		color: $blau;
+		text-decoration: underline;
+	}	
+	.panel {
+	  p{
+	  	color: $blau;
+	  }
+	  li{
+	  	color: $blau;
+	  }
+	}
+}
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+
+// ------------- Teamseite ------------------------------------------
+
+///ACCORDION
+#accordion {
+	margin-top: 5%;
+	margin-bottom: 5%;
+	border: none;
+	font-family: 'Raleway', sans-serif; 
+	h2{
+		padding-left: 2rem;
+		margin-bottom: 0.5%;
+	}
+	.ui-accordion-content {
+	    width: 100%;
+	    background-color: $white;
+	    color: $blau;
+	    font-size: 10pt;
+	    line-height: 16pt;
+	    border: none;
+	    min-height: 400px;
+	    p{
+			text-align: justify;		
+	    }
+	    .columns{
+	    	padding: 0;
+	    }
+	}
+	.ui-accordion-header {
+		color: $blau;
+
+		background: $hellgruen; 
+	    background: -webkit-linear-gradient($hellgruen, $hellgruen); /* für safari */
+	    background: -o-linear-gradient($hellgruen, $hellgruen); /* für opera */
+	    background: -moz-linear-gradient($hellgruen, $hellgruen); /* für firefox */
+	    background: linear-gradient($hellgruen, $hellgruen);
+	//ungewöhnlich Art, einzufärben, ich weiß
+	//Anders hat es bei mir aus mir unerklärlichen Gründen nciht funktioniert.
+	//Das ist mein Weg drumherum.
+	//Das Resultat war dasselbe.
+
+	//Farbekontrast auf AA geprüft <----------------------- !
+
+	    border: none;
+	    letter-spacing: 0.1rem;
+	    font-size: 1rem;
+	}
+	.accRechterBlock{
+		text-align: center;
+		.accBild{
+			max-height: 350px;
+		}
+	}
+}
+
+
+
+// Or selectively include components
+// @import
+//   "foundation/components/accordion",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/block-grid",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/button-groups",
+//   "foundation/components/buttons",
+//   "foundation/components/clearing",
+//   "foundation/components/dropdown",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/forms",
+//   "foundation/components/grid",
+//   "foundation/components/inline-lists",
+//   "foundation/components/joyride",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/magellan",
+//   @import "foundation/components/orbit";
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/reveal",
+//   "foundation/components/side-nav",
+//   "foundation/components/split-buttons",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switches",
+//   "foundation/components/tables",
+//   "foundation/components/tabs",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/top-bar",
+//   "foundation/components/type",
+//   "foundation/components/offcanvas",
+//   "foundation/components/visibility";
+//	@import "foundation/components/icon-bar";
+
+///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+
+/*
+.valign-middle {
+    display: table;
+
+    > .columns {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    > .columns, > [class*="column"] + [class*="column"]:last-child {
+        float: none;
+    }
+}
+*/
